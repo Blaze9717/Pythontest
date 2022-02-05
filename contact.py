@@ -1,4 +1,5 @@
 from sqlalchemy import false
+import pyperclip
 
 
 class Contact:
@@ -73,6 +74,12 @@ def display_contacts(cls):
     '''
     return cls.contact_list
 
+@classmethod
+def copy_contact(cls,number):
+    contact_found = Contact.find_by_number(number)
+    pyperclip.copy(contact_found.email)
+    
+    
     
         
     
