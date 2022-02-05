@@ -28,7 +28,17 @@ def test_save_contact(self):
     test for saving a contact
     '''
     self.new_contact.save_contact()#how we save 
-    self.asserEqual(len(Contact.contact_list),1)   
+    self.asserEqual(len(Contact.contact_list),1) 
+    
+    #THIRD-TEST(SAVINGMULTIPLECONTACT)
+def test_save_multiple_contact(self):
+    '''
+    saving multiple contacts
+    '''
+    self.new_contact.save_contact()
+    test_contact = Contact("Test","User","0722348613","test@gmail.com")
+    test_contact.save_contact()
+    self.assertEqual(len(Contact.contact_list),2)
     
     
 if __name__ == '__main__':
