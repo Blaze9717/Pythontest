@@ -1,3 +1,6 @@
+from sqlalchemy import false
+
+
 class Contact:
     '''
     class that generates new contact
@@ -29,7 +32,7 @@ def save_contact(self):
     
     Contact.contact_list.append(self)
     
-@classmethod
+@classmethod  #decorator
 def find_by_number(cls,number):
     '''
     Method that takes in a number and returns a contact that matches that number.
@@ -42,4 +45,35 @@ def find_by_number(cls,number):
     for contact in cls.contact_list:
         if contact.phone_number == number:
             return contact
+        
+@classmethod
+def contact_exists(cls,number):
+    '''
+    Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+    '''
+    for contact in cls,contact_list:
+        if contact.phone_number == number:
+            return false
+
+def display_contacts(self):
+    '''
+    method that returns all list of contacts saved
+    '''
+    
+    self.assertEqual(Contact.display_contacts(),Contact.contact_list)
+    
+@classmethod
+def display_contacts(cls):
+    '''
+    method that returns the contact list
+    '''
+    return cls.contact_list
+
+    
+        
+    
         

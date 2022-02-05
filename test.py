@@ -59,6 +59,18 @@ def test_delete_contact(self):
     self.new_contact.delete_contact()#deleting a contact
     self.assertEqual(len(Contact.contact_list),1)
     
+def test_contact_exist(self):
+    '''method to test i a contact exits
+    '''
+    self.new_contact.save_contact()
+    test_contact = Contact("Test","User","0722348613","test@gmail.com")
+    test_contact.save_contact()
+    
+    contact_exists = Contact.contact_exists("0722348613")
+    
+    self.assertTrue(contact_exists)
+    
+        
     
     
     
