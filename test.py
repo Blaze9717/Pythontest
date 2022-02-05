@@ -40,13 +40,27 @@ def test_save_multiple_contact(self):
     test_contact.save_contact()
     self.assertEqual(len(Contact.contact_list),2)
     
-    #FOURTH-TEST(tearDown method that does clean up after each test case has run.)
+    #(tearDown method that does clean up after each test case has run.)
 def tearDown(self):
     '''
     tearDown method that does clean up after each test case has run.
     '''
     Contact.contact_list = []
 
-
+    #FOURTH-TEST(DELETING)
+def test_delete_contact(self):
+    '''
+    method that delets contacts
+    '''
+    self.new_contact.save_contact()
+    test_contact = Contact("Test","User","0722348613","test@gmail.com")
+    test_contact.save_contact()
+    
+    self.new_contact.delete_contact()#deleting a contact
+    self.assertEqual(len(Contact.contact_list),1)
+    
+    
+    
+    
 if __name__ == '__main__':
     unittest.main()
